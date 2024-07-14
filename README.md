@@ -31,7 +31,7 @@ This section highlights some of the key projects I’ve worked on. Each project 
 
 A list of technical and soft skills that I have developed through my education and experience. This includes programming languages, tools, frameworks, and personal attributes.
 
-<p style="font-size:20px;">### Contact</p>
+<p style="font-size:20px;">Contact</p>
 
 Details on how to reach me, including links to my GitHub, LinkedIn, and email.
 
@@ -40,14 +40,12 @@ Details on how to reach me, including links to my GitHub, LinkedIn, and email.
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- **Bootstrap** (or any other framework/library you might have used)
 - **GitHub Pages** for hosting
 
 ## How to Use
 
 You can visit the live site at [Michael-Joseph-Ellis.github.io](https://Michael-Joseph-Ellis.github.io) to view my portfolio. If you wish to explore the source code, you can clone the repository:
 
-```bash
 git clone https://github.com/Michael-Joseph-Ellis/Michael-Joseph-Ellis.github.io.git
 
 
