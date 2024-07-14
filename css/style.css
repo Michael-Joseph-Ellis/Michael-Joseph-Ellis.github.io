@@ -1,0 +1,1560 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --second-text-color: #999898;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Keyframes */
+
+@keyframes fadeFromRight {
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes fadeFromLeft {
+    0% {
+        width: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0%;        
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0%;        
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0%;        
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0%;        
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+
+}
+
+/* Header Design Style */ 
+
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    position: relative;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeFromRight 1s ease forwards;
+    animation-delay: .4s;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeFromRight 1s ease forwards;
+    animation-delay: .5s;
+}
+
+.navbar a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+    transition: .3s;    
+}
+
+.navbar a:hover,
+.navbar a.active  {
+    color: var(--second-text-color);
+    
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+/* Images Design Style */
+
+.home .my-face {
+    position: relative;
+    top: -24rem;
+    left: 60.5rem;
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/my-face.jpg);
+    border-radius: 50%;
+    border: .2rem solid var(--text-color);
+    margin: 0 auto;
+    display: block;
+    transition: .5s;
+    animation: slideInFromRight 1s ease-out forwards;
+    opacity: 0;
+}
+
+.home .my-face:hover {
+    transform: scale(1.1);
+}
+
+/* Footer Design Style */
+.footer {
+    position: fixed;
+    left: 170rem;
+    bottom: 2rem;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeOut 3s ease forwards;
+}
+
+/* Social Buttons */
+
+.social-btns {
+    position: fixed;
+    bottom: 4rem;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-btns::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeFromRight 1s ease forwards;
+    animation-delay: .6s;
+    z-index: 2;
+}
+
+.social-btns a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: .2rem solid var(--second-text-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--text-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.social-btns a:hover {
+    color: var(--bg-color);
+}
+
+.social-btns a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .5s; 
+    animation: slideInFromRight 1s ease-out forwards;
+    opacity: 0;
+}
+
+.social-btns a:hover::before {
+    width: 100%;
+}
+
+/* Home Page Section Design Style */
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content {
+    position: relative;
+    max-width: 60rem; 
+}
+
+.home-content h1 {
+    position: relative;
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.home-content h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 101%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeFromRight 1s ease forwards;
+    animation-delay: .5s;
+}
+
+.home-content .headline {
+    position: relative;
+    overflow: hidden;
+    width: 300rem;
+    top: 1rem;
+}
+
+.home-content .headline h3 {
+    font-size: 2.1rem;
+    font-weight: 100;
+    color: var(--text-color);
+    -webkit-text-stroke: .7px var(--text-color);
+}
+
+.home-content h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeIn 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.home-content .home-about {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-content .home-about {
+    font-size: 1.6rem;
+    margin: 2rem 0 4rem;
+    font-weight: 100;
+}
+
+.home-content .home-about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1.0s;
+}
+
+.home-content .home-note{
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.home-content .home-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+/* About Page Design Style */
+
+.about {
+    display: flex; 
+    padding: 10rem 9% 2rem;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--bg-color);
+    padding-bottom: 6rem;
+}
+
+.about-content {
+    content: '';
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    display:flex; 
+    flex-direction: column;
+}
+
+.about-content .about-btn-boxes {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 10rem;
+    left: 51.5rem;
+    animation: slideInFromRight 1.8s ease forwards;
+    opacity: 0; /* Start with opacity 0 */
+}
+
+.about-btn-boxes a {
+    width: 22rem;
+    height: 6rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    color: var(--bg-color);
+    transition: 1s;
+}
+
+.about-btn-boxes .hobbies:hover,
+.about-btn-boxes .interests:hover,
+.about-btn-boxes .other:hover {
+    color: var(--text-color);
+}
+
+.about-btn-boxes a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.about-btn-boxes a:hover::before {
+    width: 100%;
+}
+
+.about-content .hobbies-desc, 
+.about-content .interests-desc, 
+.about-content .other-desc {
+    display: none;
+}
+
+.about-content .centered-horizontal-line {
+    position: relative;
+    width: 90rem;
+    left: .1rem;
+    height: 2px;
+    background: var(--text-color);
+    margin: 4rem 0;
+    animation: slideInFromRight 1.8s ease forwards;
+}
+
+.about-content .centered-vertical-line {
+    width: 2px; 
+    height: 63rem; 
+    background-color: var(--text-color); 
+    position: absolute; 
+    left: 50%; 
+    top: 10rem; 
+    animation: slideInFromTop 1.8s ease forwards;
+}
+
+/* About Page Hobbies Design Style */
+
+.about-btn-boxes .hobbies {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 6rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.about-btn-boxes .hobbies:hover {
+    color: var(--text-color);
+}
+
+.about-btn-boxes .hobbies:nth-child(1) {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.about-btn-boxes .hobbies:nth-child(1):hover {
+    color: var(--bg-color);
+}
+
+.about-btn-boxes .hobbies:nth-child(1)::before {
+    background: var(--text-color); 
+}
+
+.about-btn-boxes .hobbies::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.about-btn-boxes .hobbies:hover::before {
+    width: 100%;
+}
+
+.about-content .hobbies-icon {
+    position: absolute;
+    left: 89.3rem;
+    bottom: 18rem;
+    font-size: 2.5rem;
+    animation: fadeOut 3s ease forwards;
+}
+
+.about-content .hobbies-icon-desc {
+    position: relative;
+    display: flex;
+    left: 1px;
+    bottom: 7rem;
+    animation: fadeOut 4.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobby1 {
+    position: absolute;
+    left: 50rem;
+    top: 15rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobby2 {
+    position: absolute;
+    left: 50rem;
+    top: 25rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+}
+
+.about-content .hobby3 {
+    position: absolute;
+    left: 50rem;
+    top: 35rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobby4 {
+    position: absolute;
+    left: 50rem;
+    top: 45rem;
+    font-size: 2rem;
+    animation: slideInFromBottom 1.5s ease forwards;
+}
+
+.about-content .hobby5 {
+    position: absolute;
+    left: 50rem;
+    top: 55rem;
+    font-size: 2rem;
+    animation: slideInFromBottom 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobby6 {
+    position: absolute;
+    left: 50rem;
+    top: 65rem;
+    font-size: 2rem;
+    animation: slideInFromBottom 1.5s ease forwards;
+}
+
+.about-content .hobbies-desc1 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 10rem;
+    left: 100rem;
+    animation: slideInFromRight 1s ease forwards;
+    opacity: 0;
+    top: 13.4rem;
+}
+
+.about-content .hobbies-desc2 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 10rem;
+    left: 100rem;
+    top: 23.5rem;
+    animation: slideInFromRight 1.2s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobbies-desc3 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 10rem;
+    left: 100rem;
+    top: 33.1rem;
+    animation: slideInFromRight 1.4s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobbies-desc4 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 10rem;
+    left: 100rem;
+    top: 43rem;
+    animation: slideInFromRight 1.6s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobbies-desc5 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 10rem;
+    left: 100rem;
+    top: 52.1rem;
+    animation: slideInFromRight 1.8s ease forwards;
+    opacity: 0;
+}
+
+.about-content .hobbies-desc6 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 10rem;
+    left: 100rem;
+    top: 62.1rem;
+    animation: slideInFromRight 2.0s ease forwards;
+    opacity: 0;
+}
+
+/* About Page Interests Design Style */ 
+
+.about-btn-boxes .interests {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 6rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.about-btn-boxes .interests:hover {
+    color: var(--text-color);
+}
+
+.about-btn-boxes .interests:nth-child(2) {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.about-btn-boxes .interests:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+.about-btn-boxes .interests:nth-child(2)::before {
+    background: var(--text-color); 
+}
+
+.about-btn-boxes .interests::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.about-btn-boxes .interests:hover::before {
+    width: 100%;
+}
+
+.about-content .interests-icon {
+    position: absolute;
+    left: 88.7rem;
+    bottom: 18rem;
+    font-size: 2.5rem;
+    animation: fadeOut 3s ease forwards;
+}
+
+.about-content .interests-icon-desc {
+    position: relative;
+    display: flex;
+    left: 1px;
+    bottom: 7rem;
+    animation: fadeOut 4.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .interests1 {
+    position: absolute;
+    left: 50rem;
+    top: 15rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .interests2 {
+    position: absolute;
+    left: 50rem;
+    top: 35rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .interests3 {
+    position: absolute;
+    left: 50rem;
+    top: 55rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .interests-desc1 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 13.4rem;
+    animation: slideInFromRight 1s ease forwards;
+    opacity: 0;
+}
+
+.about-content .interests-desc2 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 22rem;
+    left: 100rem;
+    top: 32.1rem;
+    animation: slideInFromRight 1.4s ease forwards;
+    opacity: 0;
+}
+
+.about-content .interests-desc3 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 54.1rem;
+    animation: slideInFromRight 1.8s ease forwards;
+    opacity: 0;
+}
+
+/* About Page Skills Design Style */
+
+.about-btn-boxes .other {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 6rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.about-btn-boxes .other:hover {
+    color: var(--text-color);
+}
+
+.about-btn-boxes .other:nth-child(3) {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.about-btn-boxes .other:nth-child(3):hover {
+    color: var(--bg-color);
+}
+
+.about-btn-boxes .other:nth-child(3)::before {
+    background: var(--text-color); 
+}
+
+.about-btn-boxes .other::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.about-btn-boxes .other:hover::before {
+    width: 100%;
+}
+
+.about-content .other-icon {
+    position: absolute;
+    left: 90.5rem;
+    bottom: 18rem;
+    font-size: 2.5rem;
+    animation: fadeOut 3s ease forwards;
+}
+
+.about-content .other-icon-desc {
+    position: relative;
+    display: flex;
+    bottom: 7rem;
+    animation: fadeOut 4.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other1 {
+    position: absolute;
+    left: 50rem;
+    top: 15rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other2 {
+    position: absolute;
+    left: 50rem;
+    top: 25rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other3 {
+    position: absolute;
+    left: 50rem;
+    top: 35rem;
+    font-size: 2rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other4 {
+    position: absolute;
+    left: 50rem;
+    top: 45rem;
+    font-size: 2rem;
+    animation: slideInFromBottom 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other5 {
+    position: absolute;
+    left: 50rem;
+    top: 55rem;
+    font-size: 2rem;
+    animation: slideInFromBottom 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other6 {
+    position: absolute;
+    left: 50rem;
+    top: 65rem;
+    font-size: 2rem;
+    animation: slideInFromBottom 1.5s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other-desc1 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 13.4rem;
+    animation: slideInFromRight 1s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other-desc2 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 23.5rem;
+    animation: slideInFromRight 1.3s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other-desc3 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 32rem;
+    animation: slideInFromRight 1.6s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other-desc4 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 42rem;
+    animation: slideInFromRight 1.9s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other-desc5 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 20rem;
+    left: 100rem;
+    top: 52.2rem;
+    animation: slideInFromRight 2.2s ease forwards;
+    opacity: 0;
+}
+
+.about-content .other-desc6 {
+    overflow: hidden;
+    position: absolute;
+    width: 39rem;
+    height: 15rem;
+    left: 100rem;
+    top: 64rem;
+    animation: slideInFromRight 2.5s ease forwards;
+    opacity: 0;
+}
+
+/* Experience Page Design Style */
+
+.experience {
+    display: flex; 
+    padding: 10rem 9% 2rem;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--bg-color);
+    padding-bottom: 6rem;
+}
+
+.experience-content {
+    content: '';
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    display:flex; 
+    flex-direction: column;
+}
+
+.experience-content .experience-btn-boxes {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 20rem;
+    left: 11.5rem;
+    animation: slideInFromLeft 1.8s ease forwards;
+    opacity: 0; 
+}
+
+.experience-btn-boxes a {
+    width: 22rem;
+    height: 6rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    color: var(--bg-color);
+    transition: 1s;
+}
+
+.experience-btn-boxes .work:hover,
+.experience-btn-boxes .projects:hover,
+.experience-btn-boxes .cv:hover {
+    color: var(--text-color);
+}
+
+.experience-btn-boxes a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.experience-btn-boxes a:hover::before {
+    width: 100%;
+}
+
+.experience-btn-boxes .work {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 6rem;
+    top: 12rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.experience-btn-boxes .work:hover {
+    color: var(--text-color);
+}
+
+.experience-btn-boxes .work:nth-child(1) {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.experience-btn-boxes .work:nth-child(1):hover {
+    color: var(--bg-color);
+}
+
+.experience-btn-boxes .work:nth-child(1)::before {
+    background: var(--text-color); 
+}
+
+.experience-btn-boxes .work::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.experience-btn-boxes .work:hover::before {
+    width: 100%;
+}
+
+.experience-btn-boxes .projects {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 6rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.experience-btn-boxes .projects:hover {
+    color: var(--text-color);
+}
+
+.experience-btn-boxes .projects:nth-child(2) {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.experience-btn-boxes .projects:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+.experience-btn-boxes .projects:nth-child(2)::before {
+    background: var(--text-color); 
+}
+
+.experience-btn-boxes .projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.experience-btn-boxes .projects:hover::before {
+    width: 100%;
+}
+
+.experience-btn-boxes .cv {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 6rem;
+    bottom: 12rem;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: 2.8rem;
+    font-size: 1.8rem; 
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.experience-btn-boxes .cv:hover {
+    color: var(--text-color);
+}
+
+.experience-btn-boxes .cv:nth-child(3) {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.experience-btn-boxes .cv:nth-child(3):hover {
+    color: var(--bg-color);
+}
+
+.experience-btn-boxes .cv:nth-child(3)::before {
+    background: var(--text-color); 
+}
+
+.experience-btn-boxes .cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.experience-btn-boxes .cv:hover::before {
+    width: 100%;
+}
+
+/* Work Page Work Design Style */
+
+.work-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.work-icon {
+    position: relative;
+    align-items: center;
+    font-size: 1.5rem;
+    animation: fadeOut 3s ease forwards;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    bottom: 60rem;
+}
+
+.work-section .work-tab-centered-horizontal-line1 {
+    position: absolute;
+    align-items: center;
+    width: 90rem;
+    left: 49rem;
+    height: 2px;
+    top: 19rem;
+    background: var(--text-color);
+    margin: 4rem 0;
+    animation: slideInFromRight 2.5s ease forwards;
+}
+
+.work-section .work-tab-centered-horizontal-line2 {
+    position: absolute;
+    align-items: center;
+    width: 90rem;
+    left: 49rem;
+    height: 2px;
+    top: 37.2rem;
+    background: var(--text-color);
+    margin: 4rem 0;
+    animation: slideInFromRight 3s ease forwards;
+}
+
+/* Work Page Work1 Design Style */
+
+.experience-content .work1 {
+    position: absolute;
+    align-items: center;
+    left: 55rem;
+    top: 48rem;
+    width: 30rem;
+    font-size: 1.5rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.work1-info .employer {
+    position: absolute;
+    align-items: center;
+    left: 55rem;
+    top: 55rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: slideInFromTop 1s ease forwards;
+    opacity: 0;
+}
+
+.work1-info .location {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 45rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.3s ease forwards;
+    opacity: 0;
+}
+
+.work1-info .date {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 50rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.6s ease forwards;
+    opacity: 0;
+}
+
+.work1-info .employment-type {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 55rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.9s ease forwards;
+    opacity: 0;
+}
+
+.work1-info .work-desc {
+    position: absolute;
+    align-items: center;
+    left: 95rem;
+    top: 45rem;
+    width: 20rem;
+    font-size: 1rem;
+    animation: fadeOut 2.2s ease forwards;
+    opacity: 0;
+}
+
+/* Work Page Work2 Design Style */
+
+.experience-content .work2 {
+    position: absolute;
+    align-items: center;
+    left: 55rem;
+    top: 30rem;
+    width: 30rem;
+    font-size: 1.5rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.work2-info .employer {
+    position: absolute;
+    align-items: center;
+    left: 55rem;
+    top: 36.5rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: slideInFromTop 1s ease forwards;
+    opacity: 0;
+}
+
+.work2-info .location {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 26rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.3s ease forwards;
+    opacity: 0;
+}
+
+.work2-info .date {
+    position: absolute;
+    align-items: center;
+    left:120rem;
+    top: 31rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.6s ease forwards;
+    opacity: 0;
+}
+
+.work2-info .employment-type {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 36rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.9s ease forwards;
+    opacity: 0;
+}
+
+.work2-info .work-desc {
+    position: absolute;
+    align-items: center;
+    left: 95rem;
+    top: 25rem;
+    width: 20rem;
+    font-size: 1rem;
+    animation: fadeOut 2.2s ease forwards;
+    opacity: 0;
+}
+
+/* Work Page Work3 Design Style */
+
+.experience-content .work3 {
+    position: absolute;
+    align-items: center;
+    left: 55rem;
+    top: 10rem;
+    width: 30rem;
+    font-size: 1.5rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+}
+
+.work3-info .employer {
+    position: absolute;
+    align-items: center;
+    left: 55rem;
+    top: 18.5rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: slideInFromTop 1s ease forwards;
+    opacity: 0;
+}
+
+.work3-info .location {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 9rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.3s ease forwards;
+    opacity: 0;
+}
+
+.work3-info .date {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 14rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.6s ease forwards;
+    opacity: 0;
+}
+
+.work3-info .employment-type {
+    position: absolute;
+    align-items: center;
+    left: 120rem;
+    top: 19rem;
+    width: 30rem;
+    font-size: 1rem;
+    animation: fadeOut 1.9s ease forwards;
+    opacity: 0;
+}
+
+.work3-info .work-desc {
+    position: absolute;
+    align-items: center;
+    left: 95rem;
+    top: 9rem;
+    width: 20rem;
+    font-size: 1rem;
+    animation: fadeOut 2.2s ease forwards;
+    opacity: 0;
+}
+
+/* Projects Page Design Style */
+
+.projects-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    margin-top: -3rem;
+}
+
+.projects-icon {
+    position: relative;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    animation: fadeOut 3s ease forwards;
+    bottom: 59rem;
+    left: 38.5rem;
+}
+
+.projects-icon-desc {
+    position: relative;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    animation: fadeOut 3s ease forwards;
+    bottom: 65rem;
+    left: 37rem;
+}
+
+/* Flexbox for project boxes */
+.projects-boxes {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap; 
+    margin-top: -60rem; 
+}
+
+.project-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    animation: slideInFromTop 1.5s ease forwards;
+    opacity: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.project-info p {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* CV Page Design Style */
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .cv-box {
+        width: 90%; 
+    }
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .projects {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-boxes {
+        justify-content: center;
+    }
+}
