@@ -4,14 +4,14 @@ Welcome to my personal portfolio website! This site is designed to showcase my s
 
 ## Overview
 
-This portfolio website serves as a platform to display my work and achievements. It includes sections about me, my projects, skills, and contact information, providing a comprehensive view of my professional profile.
+This portfolio website serves as a platform to display my work and achievements. It includes sections about me, my current projects, and contact information, providing a comprehensive view of my professional profile.
 
 ### Features
 
 - **Home Page**: An introduction to who I am and what I do.
-- **Projects**: Detailed descriptions of various projects I've worked on, including technical details and significance.
-- **Skills**: A summary of the skills I've acquired over time.
-- **Contact**: Information on how to get in touch with me.
+- **About**: Detailed descriptions of various hobbies, interests and other things about me and my life.
+- **Experience**: A summary of the professional work and projects I've acquired/done over time.
+- **Education**: WIP
 
 ## Sections
 
@@ -19,21 +19,19 @@ This portfolio website serves as a platform to display my work and achievements.
 
 A brief introduction to my background, interests, and goals. This section provides an overview of my educational journey and career aspirations.
 
-<h2>Projects</h2>
+<h2>About</h2>
 
-This section highlights some of the key projects I’ve worked on. Each project includes:
+This section highlights some of my hobbies, goes more in depth on my interests, and other smaller things about my life.
+
+<h2>Experience</h2>
 
 - **Title**: The name of the project.
 - **Description**: An overview of the project, including the technologies used and the problem it addresses.
 - **Significance/Purpose**: The importance of the project and its potential impact.
 
-<h3>Skills</h3>
+<h2>Education</h2>
 
-A list of technical and soft skills that I have developed through my education and experience. This includes programming languages, tools, frameworks, and personal attributes.
-
-<p style="font-size:20px;">Contact</p>
-
-Details on how to reach me, including links to my GitHub, LinkedIn, and email.
+WIP
 
 ## Technologies Used
 
