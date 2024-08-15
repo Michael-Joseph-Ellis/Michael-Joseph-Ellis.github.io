@@ -108,7 +108,7 @@ body {
 
 /* Header Design Style */ 
 
-.header{
+.header {
     position: absolute;
     top: 0;
     left: 0;
@@ -120,6 +120,8 @@ body {
     align-items: center;
     z-index: 100;
 }
+
+/* Logo Design Style */
 
 .logo {
     position: relative;
@@ -140,6 +142,8 @@ body {
     animation: fadeFromRight 1s ease forwards;
     animation-delay: .4s;
 }
+
+/* Navbar Design Style */
 
 .navbar {
     position: relative;
@@ -169,10 +173,11 @@ body {
 }
 
 .navbar a:hover,
-.navbar a.active  {
+.navbar a.active {
     color: var(--second-text-color);
-    
 }
+
+/* Menu Icon Design Style */
 
 #menu-icon {
     font-size: 3.6rem;
@@ -181,48 +186,33 @@ body {
     display: none;
 }
 
-/* Images Design Style */
-
-.home .my-face {
-    position: relative;
-    top: -24rem;
-    left: 60.5rem;
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/my-face.jpg);
-    border-radius: 50%;
-    border: .2rem solid var(--text-color);
-    margin: 0 auto;
-    display: block;
-    transition: .5s;
-    animation: slideInFromRight 1s ease-out forwards;
-    opacity: 0;
-}
-
-.home .my-face:hover {
-    transform: scale(1.1);
-}
-
 /* Footer Design Style */
+
 .footer {
     position: fixed;
-    left: 170rem;
-    bottom: 2rem;
-    background: var(--bg-color);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem; /* Reduced distance from the bottom */
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the text */
     align-items: center;
+    padding: 0.5rem 1rem; /* Added padding for better spacing */
+    background: transparent; /* Make sure there’s no background box */
+    font-size: 1rem; /* Adjust font size for readability */
+    z-index: 10; /* Ensures it’s above other elements if needed */
     animation: fadeOut 3s ease forwards;
 }
+
 
 /* Social Buttons */
 
 .social-btns {
-    position: fixed;
-    bottom: 4rem;
-    width: 170px;
+    position: fixed; /* Fixed position to stay at the bottom of the screen */
+    bottom: 2rem; /* Distance from the bottom of the screen */
+    left: 9%; /* Aligns with the "Michael." logo's left padding */
     display: flex;
     justify-content: space-between;
+    width: 170px;
 }
 
 .social-btns::before {
@@ -284,6 +274,25 @@ section {
     padding: 10rem 9% 2rem;
 }
 
+.home .my-face {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/my-face.jpg);
+    border-radius: 50%;
+    border: .2rem solid var(--text-color);
+    transition: .5s;
+    animation: slideInFromRight 1s ease-out forwards;
+    opacity: 1;
+}
+
+.home .my-face:hover {
+    transform: scale(1.1);
+}
+
 .home {
     display: flex;
     align-items: center;
@@ -293,6 +302,14 @@ section {
 .home-content {
     position: relative;
     max-width: 60rem; 
+}
+
+.home-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* No wrapping initially */
+    padding: 2rem;
 }
 
 .home-content h1 {
@@ -1556,5 +1573,16 @@ section {
 @media (max-width: 768px) {
     .cv-boxes {
         justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        bottom: 0.5rem; /* Move footer closer to the bottom on smaller screens */
+        font-size: 0.9rem; /* Adjust font size on smaller screens */
+    }
+
+    .social-btns {
+        bottom: 4rem; /* Move social buttons higher on smaller screens */
     }
 }
