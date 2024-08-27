@@ -2,51 +2,54 @@ document.addEventListener("DOMContentLoaded", function() {
     const hobbiesBtn = document.querySelector(".hobbies");
     const interestsBtn = document.querySelector(".interests");
     const otherBtn = document.querySelector(".other");
+    const contentWrapper = document.querySelector(".about-content");
 
-    const hobbiesDesc = document.querySelector(".hobbies-section");
-    const interestsDesc = document.querySelector(".interests-section");
-    const otherDesc = document.querySelector(".other-section");
+    // Function to load content from an external file
+    function loadContent(url, callback) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                // Apply fade-out effect before replacing content
+                contentWrapper.style.opacity = '0';
+                setTimeout(() => {
+                    contentWrapper.innerHTML = data;
+                    contentWrapper.style.marginTop = '0'; // Ensure no margin-top is applied
+                    contentWrapper.style.opacity = '1'; // Fade-in effect
+                    if (callback) callback();
+                }, 300); // Adjust timeout based on your desired transition duration
+            })
+            .catch(error => console.error("Error loading content:", error));
+    }
 
-    // Initially show hobbies description and mark hobbies button as active
-    hobbiesDesc.style.display = "block";
-    interestsDesc.style.display = "none";
-    otherDesc.style.display = "none";
-    hobbiesBtn.classList.add("active");
-
-    // Add event listeners to the buttons
-    hobbiesBtn.addEventListener("click", function() {
-        // Show hobbies description
-        hobbiesDesc.style.display = "block";
-        interestsDesc.style.display = "none";
-        otherDesc.style.display = "none";
-
-        // Mark hobbies button as active
+    // Initially load and show hobbies description and mark hobbies button as active
+    loadContent("hobbies-content.html", function() {
         hobbiesBtn.classList.add("active");
         interestsBtn.classList.remove("active");
         otherBtn.classList.remove("active");
     });
 
-    interestsBtn.addEventListener("click", function() {
-        // Show interests description
-        hobbiesDesc.style.display = "none";
-        interestsDesc.style.display = "block";
-        otherDesc.style.display = "none";
+    // Add event listeners to the buttons
+    hobbiesBtn.addEventListener("click", function() {
+        loadContent("hobbies-content.html", function() {
+            hobbiesBtn.classList.add("active");
+            interestsBtn.classList.remove("active");
+            otherBtn.classList.remove("active");
+        });
+    });
 
-        // Mark interests button as active
-        hobbiesBtn.classList.remove("active");
-        interestsBtn.classList.add("active");
-        otherBtn.classList.remove("active");
+    interestsBtn.addEventListener("click", function() {
+        loadContent("interests-content.html", function() {
+            hobbiesBtn.classList.remove("active");
+            interestsBtn.classList.add("active");
+            otherBtn.classList.remove("active");
+        });
     });
 
     otherBtn.addEventListener("click", function() {
-        // Show skills description
-        hobbiesDesc.style.display = "none";
-        interestsDesc.style.display = "none";
-        otherDesc.style.display = "block";
-
-        // Mark skills button as active
-        hobbiesBtn.classList.remove("active");
-        interestsBtn.classList.remove("active");
-        otherBtn.classList.add("active");
+        loadContent("other-content.html", function() {
+            hobbiesBtn.classList.remove("active");
+            interestsBtn.classList.remove("active");
+            otherBtn.classList.add("active");
+        });
     });
 });
