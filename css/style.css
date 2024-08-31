@@ -199,7 +199,6 @@ body {
     animation: fadeOut 3s ease forwards;
 }
 
-
 /* Social Buttons */
 
 .social-btns {
@@ -270,6 +269,7 @@ section {
     padding: 10rem 9% 2rem;
 }
 
+/* Base style for the image */
 .home .my-face {
     position: absolute;
     right: 10%;
@@ -285,27 +285,34 @@ section {
     opacity: 1;
 }
 
-.home .my-face:hover {
-    transform: scale(1.1);
+.home .my-face {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 0.2rem solid var(--text-color);
+    transition: 0.5s;
+    animation: slideInFromRight 1s ease-out forwards;
+    margin-left: 4rem;
 }
 
 .home {
     display: flex;
     align-items: center;
     padding: 0 10%;
+    flex-direction: row; /* Ensures content is side by side on larger screens */
 }
 
 .home-content {
     position: relative;
-    max-width: 60rem; 
+    max-width: 55%; 
 }
 
 .home-content-wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap; /* No wrapping initially */
-    padding: 2rem;
+    flex-direction: row; /* Side by side layout */
+    align-items: center; /* Vertical alignment */
+    justify-content: space-between; /* Space distribution */
+    width: 100%; /* Full width */
 }
 
 .home-content h1 {
@@ -1319,24 +1326,8 @@ section {
 
 /* CV Page Design Style */
 
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .cv-box {
-        width: 90%; 
-    }
-}
-
-/* Media Queries for Responsiveness */
-
 @media (max-width: 768px) {
     .projects {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .cv-boxes {
         justify-content: center;
     }
 }
@@ -1346,9 +1337,37 @@ section {
         bottom: 0.5rem; /* Move footer closer to the bottom on smaller screens */
         font-size: 0.9rem; /* Adjust font size on smaller screens */
     }
+}
 
+@media (max-width: 600px) {
+    .home .my-face {
+        width: 70%; /* Adjusted for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 20px; /* Adds space above the image */
+        margin-bottom: 20px; /* Adds space below the image */
+        display: block; /* Ensures the image is block-level */
+        margin-left: auto; /* Centers the image horizontally */
+        margin-right: auto; /* Centers the image horizontally */
+    }
+
+    .home-content-wrapper {
+        display: block; /* Change flex layout to block layout */
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
     .social-btns {
-        bottom: 4rem; /* Move social buttons higher on smaller screens */
+        left: 50%; /* Center the buttons */
+        transform: translateX(-50%); /* Adjust to truly center it */
+        bottom: 3.5rem; /* Adjust the bottom spacing to not overlap copyright */
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 769px) {
+    .social-btns {
+        left: 9%; /* Aligns with the Michael logo's left padding */
     }
 }
 
@@ -1365,10 +1384,10 @@ section {
     }
 }
 
-/* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     .about-btn-boxes {
         flex-direction: column;
+        top: 10%; /* Adjust position for smaller screens */
         gap: 1rem; /* Smaller gap for stacked buttons */
         order: 1; /* Ensure buttons appear first */
         margin-bottom: 2rem; /* Add some space below the buttons */

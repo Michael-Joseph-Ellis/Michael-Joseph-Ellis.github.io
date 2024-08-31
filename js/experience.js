@@ -1,3 +1,5 @@
+// Temporary file for experience page content loading
+
 document.addEventListener("DOMContentLoaded", function() {
     const workBtn = document.querySelector(".work");
     const projectsBtn = document.querySelector(".projects");

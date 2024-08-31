@@ -1,3 +1,5 @@
+// Temporary file for about page content loading
+
 document.addEventListener("DOMContentLoaded", function() {
     const hobbiesBtn = document.querySelector(".hobbies");
     const interestsBtn = document.querySelector(".interests");
