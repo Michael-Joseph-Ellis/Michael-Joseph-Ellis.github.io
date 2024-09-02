@@ -11,27 +11,22 @@ This portfolio website serves as a platform to display my work and achievements.
 - **Home Page**: An introduction to who I am and what I do.
 - **About**: Detailed descriptions of various hobbies, interests and other things about me and my life.
 - **Experience**: A summary of the professional work and projects I've acquired/done over time.
-- **Contact**: WIP
+- **Contact**: A faster way of contacting me.
 
 ## Sections
 
 ### Home
 
-A brief introduction to my background, interests, and goals. This section provides an overview of my educational journey and career aspirations.
+A brief introduction to my background. This section provides an overview of my educational journey and career aspirations.
 
 <h2>About</h2>
 
-This section highlights some of my hobbies, goes more in depth on my interests, and other smaller things about my life.
+This section highlights some of my hobbies and interests.
 
 <h2>Experience</h2>
 
-- **Title**: The name of the project.
+- **Title**: The name of the project. This includes a link to the project's GitHub page or PDFS. 
 - **Description**: An overview of the project, including the technologies used and the problem it addresses.
-- **Significance/Purpose**: The importance of the project and its potential impact.
-
-<h2>Education</h2>
-
-WIP
 
 ## Technologies Used
 
@@ -42,16 +37,7 @@ WIP
 
 ## How to Use
 
-You can visit the live site at [Michael-Joseph-Ellis.github.io](https://Michael-Joseph-Ellis.github.io) to view my portfolio. If you wish to explore the source code, you can clone the repository:
-
-git clone https://github.com/Michael-Joseph-Ellis/Michael-Joseph-Ellis.github.io.git
-
-
-## Contributing
-
-<p style="font-size:18px;">
-If you have suggestions for improvements or spot any issues, feel free to open an issue or submit a pull request. Contributions are welcome!
-</p>
+You can visit the live site at [Michael-Joseph-Ellis.github.io](https://Michael-Joseph-Ellis.github.io) to view my portfolio.
 
 ## License
 
