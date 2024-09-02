@@ -6,12 +6,12 @@ Welcome to my personal portfolio website! This site is designed to showcase my s
 
 This portfolio website serves as a platform to display my work and achievements. It includes sections about me, my current projects, and contact information, providing a comprehensive view of my professional profile.
 
-### Features
+### Main Nav Features
 
 - **Home Page**: An introduction to who I am and what I do.
 - **About**: Detailed descriptions of various hobbies, interests and other things about me and my life.
 - **Experience**: A summary of the professional work and projects I've acquired/done over time.
-- **Education**: WIP
+- **Contact**: WIP
 
 ## Sections
 
