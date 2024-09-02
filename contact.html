@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-      <title>michael.</title>
+      <title>Contact</title>
 
       <!-- stylesheet -->
       <link rel="stylesheet" href="css/style.css">
@@ -16,9 +16,6 @@
 
       <!-- google fonts -->
       <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-
-      <!-- terminal effect -->
-      <script src=js/t.min.js"></script>
 
       <!-- for on scroll animations -->
       <link rel="stylesheet" href="css/animate.css">
@@ -57,64 +54,101 @@
                         <li><a href="contact.html">contact<span>.</span></a></li>
                   </ul>
             </div>
+
             <!--------------- navbar ends here --------------->
 
+            <div class="whitespace"></div>
 
-
-            <!--------------- hero section starts here --------------->
-            <div class="hero">
-                  <div class="header">
-                        <h1 class="line anim-typewriter">hi, im michael joseph ellis.</h1>
-                  </div>
-            </div>
-
-            <div class="scroll-down"></div>
-            <!--------------- hero section ends here --------------->
-
-
-            <!--------------- hero image starts here --------------->
-            <div class="container">
-                  <div class="row">
-                        <div class="col-lg-12 image wow fadeInUp" data-wow-delay="1s"></div>
-                  </div>
-            </div>
-            <!--------------- hero image ends here --------------->
-
-
-            <!--------------- hero section starts here --------------->
+            <!--------------- hero section starts here say hello 👋 --------------->
             <div class="container">
                   <div class="hero-content">
                         <br><br>
 
                         <div class="row">
-                              <div class="col-lg-12">
-                                    <h3 class="wow fadeInUp" data-wow-delay="1.2s">who am i?</h3><br>
+                              <div class="col-lg-8">
 
-                                    <h6 class="wow fadeInUp" data-wow-delay="1.4s">
-                                                B.S. Computer Science & B.S. Psychology | AI Minor |
-                                                Undergraduate Researcher | @ Clemson University <br><br>
-                                    </h6>
-
-                                    <p class="wow fadeInUp" data-wow-delay="1.6s">
-                                          I am an aspiring researcher at the intersection of psychology and computer 
-                                          science. My research focuses on understanding human factors and cognition 
-                                          in psychology, as well as exploring how humans interact with technology 
-                                          through machine learning and AI in computer science. I am particularly 
-                                          passionate about investigating the synergy between these fields, aiming to 
-                                          uncover insights that advance both human understanding and technological 
-                                          innovation. My work integrates methodologies from both domains, 
-                                          including the development and testing of ML and AI algorithms and 
-                                          architectures, human decision-making, and the psychological processes that 
-                                          influence our interactions with intelligent systems.
-                                    </p>
-
+                                    <h3 class="wow fadeInUp" data-wow-delay="1s">say hi 👋</h3><br>
+                                    <p class="wow fadeInUp" data-wow-delay="1.2s"> if you want to talk about my research projects, 
+                                          classes, or if you just want to introduce yourself, feel free to reach out. </p>
                               </div>
                         </div>
                   </div>
             </div>
             <!--------------- hero section ends here --------------->
 
+            <!-- <div class="whitespace"></div> -->
 
+            <!--------------- form section starts here --------------->
+            <div class="container-fluid">
+                  <div class="row">
+                        <div class="col-lg-8">
+                              <form name="contact-form" id="contact-form" method="post" action="https://formspree.io/f/mdknjojj">
+
+                              <ul>
+
+                              <li class="wow fadeInUp" data-wow-delay="1.4s">
+                                    <label for="contact-name">Name :</label>
+                                    <div class="textarea">
+                                          <input type="text" name="contact-name" id="contact-name" value="" required>
+                                    </div>
+                              </li>
+
+                              <li class="wow fadeInUp" data-wow-delay="1.6s">
+                                    <label for="contact-email">Email :</label>
+                                    <div class="textarea">
+                                          <input type="email" name="contact-email" id="contact-email" value="" required>
+                                    </div>
+                              </li>
+
+                              <li class="wow fadeInUp" data-wow-delay="1.6s">
+                                    <label for="contact-project">Message :</label>
+                                    <div class="textarea">
+                                          <textarea type="email" name="contact-project" id="contact-project" rows="6" value="" required>
+                                          </textarea>
+                                    </div>
+                              </li>
+
+                              </ul>
+
+                              <button type="submit" name="contact-submit" id="contact-submit" class="send wow fadeInUp">Send Message</button>
+
+                              </form>
+                              <p id="status"></p>
+                        </div>
+                  </div>
+            </div>
+
+            <script> 
+                  document.getElementById('contact-form').addEventListener('submit', async function(event) {
+                        event.preventDefault();
+
+                        const form = event.target;
+                        const formData = new FormData(form);
+                        const statusElement = document.getElementById('status');
+
+                        try {
+                              const response = await fetch(form.action, {
+                                    method: form.method,
+                                    body: formData,
+                                    headers: {
+                                          'Accept': 'application/json'
+                                    }
+                              });
+
+                              if (response.ok) {
+                                    statusElement.textContent = "Thank you for your message! I'll get back to you soon.";
+                                    form.reset();
+                              } else {
+                                    statusElement.textContent = "Oops! There was a problem submitting your form.";
+                              }
+                        } catch (error) {
+                              statusElement.textContent = "Oops! There was a problem submitting your form.";
+                        }
+                  });
+            </script>
+            <!--------------- form section ends here --------------->
+
+            <div class="whitespace"></div>
 
             <!--------------- footer starts here --------------->
             <div class="footer">
@@ -181,7 +215,6 @@
       <script type="text/javascript">
 
       // navigation starts here
-
       $("#toggle").click(function() {
             $(this).toggleClass('on');
             $("#resize").toggleClass("active");
@@ -216,7 +249,9 @@
 
       // nav animation ends
 
+
       new WOW().init();
+
 
       </script>
 </body>
