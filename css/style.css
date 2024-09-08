@@ -890,12 +890,12 @@ h6 {
 }
 
 iframe {
-      width: 100%; /* Full width */
-      height: 700px; /* Fixed height, adjust if necessary */
-      border: none; /* Remove border */
-      overflow-y: scroll; /* Enable vertical scrolling within the iframe */
-      -webkit-overflow-scrolling: touch;
-}
+      width: 100%; /* Full width to match the container */
+      height: 80vh; /* Responsive height based on viewport, adjustable */
+      border: none; /* Clean look without border */
+      overflow-y: auto; /* Enable vertical scrolling within the iframe */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+  }
 
 @media (max-width: 768px) {
       .container {
@@ -903,7 +903,7 @@ iframe {
       }
   
       iframe {
-          height: 500px; /* Shorter height on mobile devices */
+            height: 75vh; /* Shorter height on mobile devices */
       }
   }
 
