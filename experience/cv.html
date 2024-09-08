@@ -74,6 +74,20 @@
             font-weight: bold;
             color: #333;
         }
+
+        /* Extra styling for the Download button */
+        #academic-download, #industry-download {
+            background-color: #101010; /* Green color for download */
+            margin-left: 20px; /* Space between page count and download */
+        }
+
+        #academic-download:hover, #industry-download:hover {
+            background-color: #101010; /* Darker green on hover */
+        }
+
+        #academic-download:active, #industry-download:active {
+            background-color: #101010; /* Even darker green on active */
+        }
     </style>
 
 </head>
@@ -134,6 +148,7 @@
                                 <button id="academic-prev">Previous</button>
                                 <button id="academic-next">Next</button>
                                 <span>Page: <span id="academic-page_num"></span> / <span id="academic-page_count"></span></span>
+                                <button id="academic-download">Download</button> 
                             </div>
     
                             <div class="wow fadeInUp" data-wow-delay="1s"><p class="vertical"></p></div>
@@ -148,6 +163,7 @@
                                 <button id="industry-prev">Previous</button>
                                 <button id="industry-next">Next</button>
                                 <span>Page: <span id="industry-page_num"></span> / <span id="industry-page_count"></span></span>
+                                <button id="industry-download">Download</button>
                             </div>
                         </div>
                     </div>
@@ -362,6 +378,14 @@
 
         document.getElementById('industry-prev').addEventListener('click', onPrevIndustryPage);
         document.getElementById('industry-next').addEventListener('click', onNextIndustryPage);
+
+        document.getElementById('academic-download').addEventListener('click', function() {
+            window.open(academicUrl, '_blank');
+        });
+
+        document.getElementById('industry-download').addEventListener('click', function() {
+            window.open(industryUrl, '_blank');
+        });
 
       // navigation starts here
       $("#toggle").click(function() {
