@@ -591,7 +591,7 @@ h6 {
 }
 
 .projects {
-      background: url('/imgs/projects.jpg') no-repeat 100% 65%;
+      background: url('/imgs/projects.jpg') no-repeat center center;
       background-size: cover;
       height: 400px;
 }
@@ -625,7 +625,7 @@ h6 {
 }
 
 .publications {
-      background: url('/imgs/publications.jpg') no-repeat 50% 69%;
+      background: url('/imgs/publications.jpg') no-repeat 50% 60%;
       background-size: cover;
 }
 
@@ -673,7 +673,7 @@ h6 {
 }
 
 .cv {
-      background: url('/imgs/cv.jpg') no-repeat 50% 70%;
+      background: url('/imgs/cv.jpg') no-repeat 50% 50%;
       background-size: cover;
 }
 
@@ -800,9 +800,8 @@ h6 {
 }
 
 .image {
-      background: url('/imgs/me.jpg') no-repeat 50% 70%;
-      background-size: cover;
-      height: 900px;
+      background: url('/imgs/me.jpg') no-repeat center center;
+      height: 500px;
       border-radius: 100%;
 }
 
@@ -814,28 +813,28 @@ h6 {
 }
 
 .image3 {
-      background: url('/imgs/music1.jpg') no-repeat 100% 65%;
+      background: url('/imgs/music1.jpg') no-repeat center center;
       background-size: cover;
       height: 500px;
       align-items: center;
 }
 
 .image4 {
-      background: url('/imgs/music2.jpg') no-repeat 100% 65%;
+      background: url('/imgs/music2.jpg') no-repeat center center;
       background-size: cover;
       height: 500px;
       align-items: center;
 }
 
 .image5 {
-      background: url('/imgs/music3.jpg') no-repeat 100% 65%;
+      background: url('/imgs/music3.jpg') no-repeat center center;
       background-size: cover;
       height: 500px;
       align-items: center;
 }
 
 .image6 {
-      background: url('/imgs/music4.jpg') no-repeat 100% 65%;
+      background: url('/imgs/music4.jpg') no-repeat center center;
       background-size: cover;
       height: 500px;
       align-items: center;
