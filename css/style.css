@@ -890,9 +890,22 @@ h6 {
 }
 
 iframe {
-      width: 100%;
-      height: 100%;
+      width: 100%; /* Full width */
+      height: 700px; /* Fixed height, adjust if necessary */
+      border: none; /* Remove border */
+      overflow-y: scroll; /* Enable vertical scrolling within the iframe */
+      -webkit-overflow-scrolling: touch;
 }
+
+@media (max-width: 768px) {
+      .container {
+          width: 95%; /* Slightly more width on small screens */
+      }
+  
+      iframe {
+          height: 500px; /* Shorter height on mobile devices */
+      }
+  }
 
 /*--------------- contact form --------------- */
 
