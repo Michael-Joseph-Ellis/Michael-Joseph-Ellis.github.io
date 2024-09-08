@@ -890,11 +890,19 @@ h6 {
 }
 
 iframe {
-      width: 100%; /* Full width to match the container */
-      height: 80vh; /* Responsive height based on viewport, adjustable */
-      border: none; /* Clean look without border */
-      overflow-y: auto; /* Enable vertical scrolling within the iframe */
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+      width: 100%; /* Full width */
+      height: 700px; /* Fixed height, adjust if necessary */
+      border: none; /* Remove border */
+      overflow-y: scroll; /* Enable vertical scrolling within the iframe */
+      -webkit-overflow-scrolling: touch;
+}
+
+.container {
+      width: 100%; /* Responsive width */
+      max-width: 100%; /* Limit the maximum width to enhance focus */
+      margin: 0 auto; /* Centering the container */
+      padding: 10px; /* Padding to prevent content from touching the edges */
+      overflow-y: visible; /* Ensure vertical overflow is visible for scrolling */
   }
 
 @media (max-width: 768px) {
@@ -903,7 +911,7 @@ iframe {
       }
   
       iframe {
-            height: 75vh; /* Shorter height on mobile devices */
+          height: 500px; /* Shorter height on mobile devices */
       }
   }
 
