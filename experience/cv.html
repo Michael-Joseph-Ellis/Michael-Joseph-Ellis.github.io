@@ -29,22 +29,26 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
 
       <style>
-        /* Basic styling for iframe to handle PDF */
-        iframe {
-            width: 100%;
-            height: 100vh; /* Make it fullscreen height to allow scrolling */
-            border: none;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling */
+        /* Basic styling for the canvas to handle PDF */
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;  /* Automatically adjust height based on width */
         }
 
-        /* Additional responsive design */
-        @media (max-width: 768px) {
-            iframe {
-                height: 80vh; /* Smaller height on mobile */
-            }
+        /* Ensure the container allows for panning and zooming */
+        .pdf-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            touch-action: pan-x pan-y;  /* Enable touch-based panning */
         }
-      </style>
+
+        .button-controls {
+            margin-bottom: 20px;
+        }
+    </style>
 
 </head>
 <body>
@@ -177,13 +181,13 @@
 
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <script type="text/javascript">
-        var url = '/cv/MainAcademicCV.pdf';
+        var url = '/cv/MainAcademicCV.pdf';  // Path to the PDF file
 
         var pdfDoc = null,
             pageNum = 1,
             pageRendering = false,
             pageNumPending = null,
-            scale = 1.5,
+            scale = 0.8,  // Scale down to fit mobile screens better
             canvas = document.getElementById('pdf-render'),
             ctx = canvas.getContext('2d');
 
