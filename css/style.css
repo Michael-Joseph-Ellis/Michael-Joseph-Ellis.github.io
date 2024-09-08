@@ -889,32 +889,6 @@ h6 {
       margin-top: 120px;
 }
 
-iframe {
-      width: 100%;
-      min-height: 700px; /* Ensure minimum height is sufficient to start */
-      border: none;
-      overflow-y: auto; /* Ensure scrolling is enabled */
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
-  }
-
-.container {
-      width: 100%; /* Responsive width */
-      max-width: 100%; /* Limit the maximum width to enhance focus */
-      margin: 0 auto; /* Centering the container */
-      padding: 0 15px; /* Provide padding to avoid touching the edges */
-      overflow-y: visible; /* Ensure vertical overflow is visible for scrolling */
-  }
-
-@media (max-width: 768px) {
-      .container {
-            padding: 0 10px; /* Smaller padding on smaller screens */
-      }
-  
-      iframe {
-            min-height: 500px; /* Shorter height on mobile devices */
-      }
-  }
-
 /*--------------- contact form --------------- */
 
 #contact-form {
