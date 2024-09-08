@@ -29,24 +29,50 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
 
       <style>
-        /* Basic styling for the canvas to handle PDF */
         canvas {
             display: block;
             margin: 0 auto;
             max-width: 100%;
-            height: auto;  /* Automatically adjust height based on width */
+            height: auto; 
         }
 
-        /* Ensure the container allows for panning and zooming */
         .pdf-container {
             position: relative;
             width: 100%;
             overflow: hidden;
-            touch-action: pan-x pan-y;  /* Enable touch-based panning */
+            touch-action: pan-x pan-y;
         }
 
         .button-controls {
             margin-bottom: 20px;
+        }
+
+        .button-controls button {
+            background-color: #101010;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+        }
+
+        .button-controls button:hover {
+            background-color: #101010;  
+        }
+
+        .button-controls button:active {
+            background-color: #101010; 
+            transform: scale(0.98);  
+        }
+
+        .button-controls span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 
@@ -96,17 +122,32 @@
                         <div class="col-lg-12">
                             <h1 class="wow fadeInUp" data-wow-delay="1s">CV's.</h1><br>
     
+                            <div class="wow fadeInUp" data-wow-delay="1s"><p class="vertical"></p></div>
+                            <br><br><br><br><br><br>
+    
                             <h4 class="wow fadeInUp" data-wow-delay="1s">Academic CV</h4>
                             <br><br>
+
+                            <canvas id="academic-pdf-render"></canvas>
     
-                            <!-- Canvas for PDF.js -->
-                            <canvas id="pdf-render"></canvas>
-    
-                            <!-- Controls for navigating pages -->
                             <div class="button-controls">
-                                <button id="prev">Previous</button>
-                                <button id="next">Next</button>
-                                <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                                <button id="academic-prev">Previous</button>
+                                <button id="academic-next">Next</button>
+                                <span>Page: <span id="academic-page_num"></span> / <span id="academic-page_count"></span></span>
+                            </div>
+    
+                            <div class="wow fadeInUp" data-wow-delay="1s"><p class="vertical"></p></div>
+                            <br><br><br><br><br><br>
+    
+                            <h4 class="wow fadeInUp" data-wow-delay="1s">Industry CV</h4>
+                            <br><br>
+    
+                            <canvas id="industry-pdf-render"></canvas>
+    
+                            <div class="button-controls">
+                                <button id="industry-prev">Previous</button>
+                                <button id="industry-next">Next</button>
+                                <span>Page: <span id="industry-page_num"></span> / <span id="industry-page_count"></span></span>
                             </div>
                         </div>
                     </div>
@@ -181,27 +222,32 @@
 
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <script type="text/javascript">
-        var url = '/cv/MainAcademicCV.pdf';  // Path to the PDF file
+        var academicUrl = '/cv/MainAcademicCV.pdf';
+        var industryUrl = '/cv/MainIndustryCV.pdf';
 
-        var pdfDoc = null,
-            pageNum = 1,
+        var academicPdfDoc = null,
+            industryPdfDoc = null,
+            academicPageNum = 1,
+            industryPageNum = 1,
             pageRendering = false,
             pageNumPending = null,
-            scale = 0.8,  // Scale down to fit mobile screens better
-            canvas = document.getElementById('pdf-render'),
-            ctx = canvas.getContext('2d');
+            scale = 0.8,
+            academicCanvas = document.getElementById('academic-pdf-render'),
+            industryCanvas = document.getElementById('industry-pdf-render'),
+            academicCtx = academicCanvas.getContext('2d'),
+            industryCtx = industryCanvas.getContext('2d');
 
-        function renderPage(num) {
+        // Render Academic PDF
+        function renderAcademicPage(num) {
             pageRendering = true;
 
-            // Get page
-            pdfDoc.getPage(num).then(function(page) {
+            academicPdfDoc.getPage(num).then(function(page) {
                 var viewport = page.getViewport({ scale: scale });
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
+                academicCanvas.height = viewport.height;
+                academicCanvas.width = viewport.width;
 
                 var renderContext = {
-                    canvasContext: ctx,
+                    canvasContext: academicCtx,
                     viewport: viewport
                 };
 
@@ -211,48 +257,111 @@
                     pageRendering = false;
 
                     if (pageNumPending !== null) {
-                        renderPage(pageNumPending);
+                        renderAcademicPage(pageNumPending);
                         pageNumPending = null;
                     }
                 });
 
-                document.getElementById('page_num').textContent = num;
+                document.getElementById('academic-page_num').textContent = num;
             });
         }
 
-        function queueRenderPage(num) {
+        function queueRenderAcademicPage(num) {
             if (pageRendering) {
                 pageNumPending = num;
             } else {
-                renderPage(num);
+                renderAcademicPage(num);
             }
         }
 
-        function onPrevPage() {
-            if (pageNum <= 1) {
+        function onPrevAcademicPage() {
+            if (academicPageNum <= 1) {
                 return;
             }
-            pageNum--;
-            queueRenderPage(pageNum);
+            academicPageNum--;
+            queueRenderAcademicPage(academicPageNum);
         }
 
-        function onNextPage() {
-            if (pageNum >= pdfDoc.numPages) {
+        function onNextAcademicPage() {
+            if (academicPageNum >= academicPdfDoc.numPages) {
                 return;
             }
-            pageNum++;
-            queueRenderPage(pageNum);
+            academicPageNum++;
+            queueRenderAcademicPage(academicPageNum);
         }
 
-        pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-            pdfDoc = pdfDoc_;
-            document.getElementById('page_count').textContent = pdfDoc.numPages;
+        pdfjsLib.getDocument(academicUrl).promise.then(function(pdfDoc_) {
+            academicPdfDoc = pdfDoc_;
+            document.getElementById('academic-page_count').textContent = academicPdfDoc.numPages;
 
-            renderPage(pageNum);
+            renderAcademicPage(academicPageNum);
         });
 
-        document.getElementById('prev').addEventListener('click', onPrevPage);
-        document.getElementById('next').addEventListener('click', onNextPage);
+        document.getElementById('academic-prev').addEventListener('click', onPrevAcademicPage);
+        document.getElementById('academic-next').addEventListener('click', onNextAcademicPage);
+
+        // Render Industry PDF
+        function renderIndustryPage(num) {
+            pageRendering = true;
+
+            industryPdfDoc.getPage(num).then(function(page) {
+                var viewport = page.getViewport({ scale: scale });
+                industryCanvas.height = viewport.height;
+                industryCanvas.width = viewport.width;
+
+                var renderContext = {
+                    canvasContext: industryCtx,
+                    viewport: viewport
+                };
+
+                var renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+
+                    if (pageNumPending !== null) {
+                        renderIndustryPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+
+                document.getElementById('industry-page_num').textContent = num;
+            });
+        }
+
+        function queueRenderIndustryPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderIndustryPage(num);
+            }
+        }
+
+        function onPrevIndustryPage() {
+            if (industryPageNum <= 1) {
+                return;
+            }
+            industryPageNum--;
+            queueRenderIndustryPage(industryPageNum);
+        }
+
+        function onNextIndustryPage() {
+            if (industryPageNum >= industryPdfDoc.numPages) {
+                return;
+            }
+            industryPageNum++;
+            queueRenderIndustryPage(industryPageNum);
+        }
+
+        pdfjsLib.getDocument(industryUrl).promise.then(function(pdfDoc_) {
+            industryPdfDoc = pdfDoc_;
+            document.getElementById('industry-page_count').textContent = industryPdfDoc.numPages;
+
+            renderIndustryPage(industryPageNum);
+        });
+
+        document.getElementById('industry-prev').addEventListener('click', onPrevIndustryPage);
+        document.getElementById('industry-next').addEventListener('click', onNextIndustryPage);
 
       // navigation starts here
       $("#toggle").click(function() {
